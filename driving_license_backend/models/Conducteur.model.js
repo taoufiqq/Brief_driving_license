@@ -40,22 +40,14 @@ const Conducteur = new Schema(
             trim : true,
     },
         nombre_de_Point : {
-            type : Number,
-            default:30,
-     
+            type : Number,     
     },
         validateCompte : {
             type : Boolean,
-            default:false,
             required : true,
             trim : true,
     },
-        role : {
-            type : String,
-            default:"Conducteur",
-            required : true,
-            trim : true,
-    },     
+    
   }
 );
 const ConducteurList = mongoose.model("Conducteur", Conducteur);

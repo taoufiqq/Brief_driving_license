@@ -5,8 +5,9 @@ const AdminController = require('../controllers/Admin.controller');
 
 router.post('/authentication', AdminController.addAdmin)
 router.post('/loginAdmin', AdminController.loginAdmin)
-router.post('/updateConducteur/:id', AdminController.updateConducteur)
-router.post('/getConducteurById/:id', AdminController.getConductorById)
+router.put('/updateConducteur/:id', AdminController.updateConducteur)
+router.get('/getConducteurById/:id', AdminController.getConductorById)
+router.get('/getAllConducteur', AdminController.getAllConducteur);
 router.get('/logout', AdminController.logout);
 
 

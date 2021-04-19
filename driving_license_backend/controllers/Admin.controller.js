@@ -41,7 +41,7 @@ const addAdmin = (req, res) => {
           });
           AdminPush
             .save()
-            .then(() => res.json("SupperAdmin authentication successfully"))
+            .then(() => res.json("Admin authentication successfully"))
             .catch((err) => res.status(400).json("Error :" + err));
         });
         }
@@ -136,18 +136,31 @@ const updateConducteur = async(req, res) => {
             ">
             <h2>We sorry to know that</h2>
             <p>Your Point changed to ${req.body.nombre_de_Point}<p>
-            <p>Pease pay attention<p>
+            <p>Please pay attention<p>
              </div>
         `
         })
   };
   
+      //-------------------------get All Conducteur-----------------------------   
   
+      const getAllConducteur = (req, res) => {
+        Conducteur.find()
+          .then(ConducteurInfos => {
+            res.status(200).json(ConducteurInfos);
+          }).catch(error => {
+            console.log(error);
+            res.status(500).json({
+              message: "Error!",
+              error: error
+            });
+          });
+      }; 
   
   // ______________________get conductor by id__________________
   const getConductorById = (req, res) => {
     Conducteur.findById(req.params.id)
-        .then(Delivery => {
+        .then(Conducteur => {
           res.status(200).json(Conducteur);
         }).catch(err => {
             if(err.kind === 'ObjectId') {
@@ -161,7 +174,8 @@ const updateConducteur = async(req, res) => {
                 error: err
             });
         });
-  };      
+  };  
+   
 module.exports={
-        addAdmin,loginAdmin,logout,updateConducteur,getConductorById
+        addAdmin,loginAdmin,logout,updateConducteur,getConductorById,getAllConducteur
 };
