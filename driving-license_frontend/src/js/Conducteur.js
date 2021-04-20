@@ -13,7 +13,7 @@ function register() {
       const user = {adresse,password,matricule,fullName,email,telephone,numero_de_Permis};
   // console.log(user);
   
-    axios.post('http://localhost:3030/Conducteur/authentication',user)
+    axios.post('https://driving-license-api.herokuapp.com/Conducteur/authentication',user)
        .then((res) => {
             if(res.data.message){
                    return false        
@@ -35,7 +35,7 @@ function SignInConducteur() {
       const user = {matricule,password};
   // console.log(user);
   
-    axios.post('http://localhost:3030/Conducteur/loginConducteur',user)
+    axios.post('https://driving-license-api.herokuapp.com/Conducteur/loginConducteur',user)
        .then((res) => {
                if(!res.data.message){ 
   
@@ -60,7 +60,7 @@ function SignInConducteur() {
   let rowConducteur = document.getElementById('name');
   let idcondactor= localStorage.getItem('id');
   let rowConducteur2 = document.getElementById('row2');
-  axios.get(`http://localhost:3030/Admin/getConducteurById/${idcondactor}`)
+  axios.get(`https://driving-license-api.herokuapp.com/Admin/getConducteurById/${idcondactor}`)
 
   .then((res) => {
 

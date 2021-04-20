@@ -7,7 +7,7 @@ function signin() {
       const user = {login,password};
   // console.log(user);
   
-    axios.post('http://localhost:3030/Admin/loginAdmin',user)
+    axios.post('https://driving-license-api.herokuapp.com/Admin/loginAdmin',user)
        .then((res) => {
                if(!res.data.message){ 
   
@@ -44,7 +44,7 @@ function signin() {
 
 let rowAdmin = document.getElementById('nameAdmin');
 
-  axios.get(`http://localhost:3030/Admin`)
+  axios.get(`https://driving-license-api.herokuapp.com/Admin`)
  .then((res) => {
     res.data.forEach(element => {
         rowAdmin.innerHTML += `<h3>${element.fullName}</h3>`
@@ -57,7 +57,7 @@ let rowAdmin = document.getElementById('nameAdmin');
 
 let rowConducteur = document.getElementById('row');
 
-axios.get('http://localhost:3030/Admin/getAllConducteur')
+axios.get('https://driving-license-api.herokuapp.com/Admin/getAllConducteur')
 .then(function (response) {
   
     response.data.forEach(element => {
@@ -84,7 +84,7 @@ axios.get('http://localhost:3030/Admin/getAllConducteur')
 
 
 function update(id){
-    axios.get(`http://localhost:3030/Admin/getConducteurById/${id}`)
+    axios.get(`https://driving-license-api.herokuapp.com/Admin/getConducteurById/${id}`)
     .then(function (response) {
     
         let nombre_de_Point = document.getElementById('nombre_de_Point').value = ` ${response.data.nombre_de_Point}`
@@ -106,7 +106,7 @@ function update(id){
             infraction:infraction
            }
     
-        axios.put(`http://localhost:3030/Admin/updateConducteur/${id}`,obj)
+        axios.put(`https://driving-license-api.herokuapp.com/Admin/updateConducteur/${id}`,obj)
         .then(function (response) {
     
             const myNotification = new Notification('Notification', {
