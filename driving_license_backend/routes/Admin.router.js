@@ -8,6 +8,7 @@ router.post('/loginAdmin', AdminController.loginAdmin)
 router.put('/updateConducteur/:id', AdminController.updateConducteur)
 router.get('/getConducteurById/:id', AdminController.getConductorById)
 router.get('/getAllConducteur', AdminController.getAllConducteur);
+router.get('/', AdminController.getAdmin);
 router.get('/logout', AdminController.logout);
 
 

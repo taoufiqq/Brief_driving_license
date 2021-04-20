@@ -208,5 +208,7 @@ a{
 }
 a:hover{
     color:#32738F;
+	font-size: 30px;
+    font-weight: bold;
 }
 

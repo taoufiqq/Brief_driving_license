@@ -40,7 +40,18 @@ function signin() {
     window.location.href = 'login.html'
   }
 
+// ------------get admin name-------------
 
+let rowAdmin = document.getElementById('nameAdmin');
+
+  axios.get(`http://localhost:3030/Admin`)
+ .then((res) => {
+    res.data.forEach(element => {
+        rowAdmin.innerHTML += `<h3>${element.fullName}</h3>`
+});
+  }).catch((err) => {
+    console.log(err)
+    })
 
 // --------------get category from db---------------- 
 
@@ -89,16 +100,17 @@ function update(id){
      
     
         let nombre_de_Point_Updated = document.getElementById('nombre_de_Point').value;
-    
+        let infraction = document.getElementById('infraction').value;
         var obj =     {
-            nombre_de_Point : nombre_de_Point_Updated
+            nombre_de_Point : nombre_de_Point_Updated,
+            infraction:infraction
            }
     
         axios.put(`http://localhost:3030/Admin/updateConducteur/${id}`,obj)
         .then(function (response) {
     
             const myNotification = new Notification('Notification', {
-                body: 'Category updated successfully'
+                body: 'updated successfully'
               })
     
                 document.getElementById("closeConducteur").click();

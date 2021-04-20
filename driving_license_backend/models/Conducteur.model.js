@@ -47,7 +47,11 @@ const Conducteur = new Schema(
             required : true,
             trim : true,
     },
-    
+      infraction : {
+        type : String,
+        required : true,
+        trim : true,
+},
   }
 );
 const ConducteurList = mongoose.model("Conducteur", Conducteur);
