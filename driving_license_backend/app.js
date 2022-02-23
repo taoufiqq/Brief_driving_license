@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 
 
 
-mongoose.connect('mongodb://localhost:27017/MonPermis' , {
+mongoose.connect('mongodb+srv://Taoufiq:Alsa2018el@cluster0.atxzc.mongodb.net/MonPermis?retryWrites=true&w=majority' , {
   useNewUrlParser: true
 }).then(() => {
   console.log("Successfully connected to the database");    
